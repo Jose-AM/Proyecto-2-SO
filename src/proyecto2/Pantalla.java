@@ -5,6 +5,8 @@
 package proyecto2;
 
 import java.util.concurrent.Semaphore;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -34,78 +36,77 @@ public class Pantalla extends javax.swing.JFrame {
     Cola<Personaje> cola2RSt = new Cola<>();
     Cola<Personaje> cola3RSt = new Cola<>();
     Cola<Personaje> colaRefuerzosSt = new Cola<>();
-
-    // Creación de personajes de Star Wars Nivel 1
-    Personaje sw1 = new Personaje("Luke Skywalker", "1w", "", 9, 10, 8, 0);
-    Personaje sw2 = new Personaje("Anakin Skywalker", "2w", "", 9, 10, 8, 0);
-    Personaje sw3 = new Personaje("Yoda", "3w", "", 8, 10, 9, 0);
-    Personaje sw4 = new Personaje("Emperador Palpatine", "4w", "", 8, 10, 9, 0);
-    Personaje sw5 = new Personaje("Rey", "5w", "", 8, 9, 10, 0);
-    Personaje sw6 = new Personaje("Mace Windu", "6w", "", 9, 9, 8, 0);
-    Personaje sw7 = new Personaje("Kylo Ren", "7w", "", 9, 8, 10, 0);
-    Personaje sw8 = new Personaje("Chewbacca", "8w", "", 8, 9, 10, 0);
-    Personaje sw9 = new Personaje("Darth Maul", "9w", "", 9, 8, 10, 0);
-    Personaje sw10 = new Personaje("Snoke", "10w", "", 8, 9, 10, 0);
+// Creación de personajes de Star Wars Nivel 1
+    Personaje sw1 = new Personaje("Luke Skywalker", "1w", "/imgs/starwars/1w.jpg", 10, 9, 9, 0);
+    Personaje sw2 = new Personaje("Anakin Skywalker", "2w", "/imgs/starwars/2w.jpg", 10, 9, 8, 0);
+    Personaje sw3 = new Personaje("Yoda", "3w", "/imgs/starwars/3w.jpg", 8, 10, 9, 0);
+    Personaje sw4 = new Personaje("Emperador Palpatine", "4w", "/imgs/starwars/4w.jpg", 8, 10, 9, 0);
+    Personaje sw5 = new Personaje("Rey", "5w", "/imgs/starwars/5w.jpg", 8, 9, 10, 0);
+    Personaje sw6 = new Personaje("Mace Windu", "6w", "/imgs/starwars/6w.jpg", 9, 9, 8, 0);
+    Personaje sw7 = new Personaje("Kylo Ren", "7w", "/imgs/starwars/7w.jpg", 9, 8, 10, 0);
+    Personaje sw8 = new Personaje("Darth Vader", "8w", "/imgs/starwars/8w.jpg", 7, 10, 9, 0);
+    Personaje sw9 = new Personaje("Darth Maul", "9w", "/imgs/starwars/9w.jpg", 9, 8, 10, 0);
+    Personaje sw10 = new Personaje("Snoke", "10w", "/imgs/starwars/10w.jpg", 8, 9, 10, 0);
 
 // Creación de personajes de Star Wars Nivel 2
-    Personaje sw11 = new Personaje("Obi-Wan Kenobi", "11w", "", 8, 9, 7, 0);
-    Personaje sw12 = new Personaje("Qui-Gon Jinn", "12w", "", 7, 8, 6, 0);
-    Personaje sw13 = new Personaje("Boba Fett", "13w", "", 7, 8, 6, 0);
-    Personaje sw14 = new Personaje("Ahsoka Tano", "14w", "", 7, 8, 6, 0);
-    Personaje sw15 = new Personaje("Lando Calrissian", "15w", "", 7, 6, 8, 0);
-    Personaje sw16 = new Personaje("Finn", "16w", "", 6, 8, 7, 0);
-    Personaje sw17 = new Personaje("Poe Dameron", "17w", "", 8, 7, 6, 0);
-    Personaje sw18 = new Personaje("Jyn Erso", "18w", "", 6, 8, 7, 0);
-    Personaje sw19 = new Personaje("Cassian Andor", "19w", "", 7, 6, 8, 0);
-    Personaje sw20 = new Personaje("Han Solo", "20w", "", 8, 6, 7, 0);
+    Personaje sw11 = new Personaje("Obi-Wan Kenobi", "11w", "/imgs/starwars/11w.jpg", 8, 9, 7, 0);
+    Personaje sw12 = new Personaje("Qui-Gon Jinn", "12w", "/imgs/starwars/12w.jpg", 7, 8, 6, 0);
+    Personaje sw13 = new Personaje("Boba Fett", "13w", "/imgs/starwars/13w.jpg", 7, 8, 6, 0);
+    Personaje sw14 = new Personaje("Ahsoka Tano", "14w", "/imgs/starwars/14w.jpg", 7, 8, 6, 0);
+    Personaje sw15 = new Personaje("Lando Calrissian", "15w", "/imgs/starwars/15w.jpg", 7, 6, 8, 0);
+    Personaje sw16 = new Personaje("Chewbacca", "16w", "/imgs/starwars/16w.jpg", 6, 10, 5, 0);
+    Personaje sw17 = new Personaje("Poe Dameron", "17w", "/imgs/starwars/17w.jpg", 8, 7, 6, 0);
+    Personaje sw18 = new Personaje("Jyn Erso", "18w", "/imgs/starwars/18w.jpg", 6, 8, 7, 0);
+    Personaje sw19 = new Personaje("Cassian Andor", "19w", "/imgs/starwars/19w.jpg", 7, 6, 8, 0);
+    Personaje sw20 = new Personaje("Han Solo", "20w", "/imgs/starwars/20w.jpg", 8, 6, 7, 0);
 
 // Creación de personajes de Star Wars Nivel 3
-    Personaje sw21 = new Personaje("Padmé Amidala", "21w", "", 7, 6, 5, 0);
-    Personaje sw22 = new Personaje("Jabba el Hutt", "22w", "", 5, 7, 6, 0);
-    Personaje sw23 = new Personaje("K-2SO", "23w", "", 5, 6, 7, 0);
-    Personaje sw24 = new Personaje("Maz Kanata", "24w", "", 6, 5, 7, 0);
-    Personaje sw25 = new Personaje("Rose Tico", "25w", "", 5, 6, 7, 0);
-    Personaje sw26 = new Personaje("Grogu (Baby Yoda)", "26w", "", 6, 7, 5, 0);
-    Personaje sw27 = new Personaje("General Grievous", "27w", "", 7, 6, 5, 0);
-    Personaje sw28 = new Personaje("R2-D2", "28w", "", 4, 6, 5, 0);
-    Personaje sw29 = new Personaje("C-3PO", "29w", "", 3, 7, 4, 0);
-    Personaje sw30 = new Personaje("Leia Organa", "30w", "", 6, 5, 7, 0);
+    Personaje sw21 = new Personaje("Padmé Amidala", "21w", "/imgs/starwars/21w.jpg", 7, 6, 5, 0);
+    Personaje sw22 = new Personaje("Jabba el Hutt", "22w", "/imgs/starwars/22w.jpg", 5, 7, 6, 0);
+    Personaje sw23 = new Personaje("K-2SO", "23w", "/imgs/starwars/23w.jpg", 5, 6, 7, 0);
+    Personaje sw24 = new Personaje("Maz Kanata", "24w", "/imgs/starwars/24w.jpg", 6, 5, 7, 0);
+    Personaje sw25 = new Personaje("Rose Tico", "25w", "/imgs/starwars/25w.jpg", 5, 6, 7, 0);
+    Personaje sw26 = new Personaje("Grogu (Baby Yoda)", "26w", "/imgs/starwars/26w.jpg", 6, 7, 5, 0);
+    Personaje sw27 = new Personaje("General Grievous", "27w", "/imgs/starwars/27w.jpg", 7, 6, 5, 0);
+    Personaje sw28 = new Personaje("R2-D2", "28w", "/imgs/starwars/28w.jpg", 4, 6, 5, 0);
+    Personaje sw29 = new Personaje("C-3PO", "29w", "/imgs/starwars/29w.jpg", 3, 7, 4, 0);
+    Personaje sw30 = new Personaje("Leia Organa", "30w", "/imgs/starwars/30w.jpg", 6, 5, 7, 0);
 
 // Creación de personajes de Star Trek Nivel 1
-    Personaje st1 = new Personaje("Data", "1t", "", 9, 10, 8, 0);
-    Personaje st2 = new Personaje("Q", "2t", "", 8, 10, 9, 0);
-    Personaje st3 = new Personaje("Worf", "3t", "", 9, 8, 10, 0);
-    Personaje st4 = new Personaje("Spock", "4t", "", 8, 9, 10, 0);
-    Personaje st5 = new Personaje("James T. Kirk", "5t", "", 9, 10, 8, 0);
-    Personaje st6 = new Personaje("Jean-Luc Picard", "6t", "", 8, 9, 10, 0);
-    Personaje st7 = new Personaje("Seven of Nine", "7t", "", 8, 10, 9, 0);
-    Personaje st8 = new Personaje("Benjamin Sisko", "8t", "", 9, 8, 10, 0);
-    Personaje st9 = new Personaje("Odo", "9t", "", 9, 10, 8, 0);
-    Personaje st10 = new Personaje("Kathryn Janeway", "10t", "", 8, 9, 10, 0);
+    Personaje st1 = new Personaje("Data", "1t", "/imgs/startreck/1t.jpg", 9, 10, 8, 0);
+    Personaje st2 = new Personaje("Q", "2t", "/imgs/startreck/2t.jpg", 8, 10, 9, 0);
+    Personaje st3 = new Personaje("Worf", "3t", "/imgs/startreck/3t.jpg", 9, 8, 10, 0);
+    Personaje st4 = new Personaje("Spock", "4t", "/imgs/startreck/4t.jpg", 8, 9, 10, 0);
+    Personaje st5 = new Personaje("James T. Kirk", "5t", "/imgs/startreck/5t.jpg", 9, 10, 8, 0);
+    Personaje st6 = new Personaje("Jean-Luc Picard", "6t", "/imgs/startreck/6t.jpg", 8, 9, 10, 0);
+    Personaje st7 = new Personaje("Seven of Nine", "7t", "/imgs/startreck/7t.jpg", 8, 10, 9, 0);
+    Personaje st8 = new Personaje("Benjamin Sisko", "8t", "/imgs/startreck/8t.jpg", 9, 8, 10, 0);
+    Personaje st9 = new Personaje("Odo", "9t", "/imgs/startreck/9t.jpg", 9, 10, 8, 0);
+    Personaje st10 = new Personaje("Kathryn Janeway", "10t", "/imgs/startreck/10t.jpg", 8, 9, 10, 0);
 
 // Creación de personajes de Star Trek Nivel 2
-    Personaje st11 = new Personaje("Tuvok", "11t", "", 7, 8, 6, 0);
-    Personaje st12 = new Personaje("William Riker", "12t", "", 8, 7, 6, 0);
-    Personaje st13 = new Personaje("Geordi La Forge", "13t", "", 6, 8, 7, 0);
-    Personaje st14 = new Personaje("B'Elanna Torres", "14t", "", 8, 6, 7, 0);
-    Personaje st15 = new Personaje("Jonathan Archer", "15t", "", 6, 8, 7, 0);
-    Personaje st16 = new Personaje("Chakotay", "16t", "", 7, 6, 8, 0);
-    Personaje st17 = new Personaje("Sarek", "17t", "", 7, 8, 6, 0);
-    Personaje st18 = new Personaje("Gul Dukat", "18t", "", 8, 7, 6, 0);
-    Personaje st19 = new Personaje("Montgomery Scott", "19t", "", 6, 8, 7, 0);
-    Personaje st20 = new Personaje("T'Pol", "20t", "", 7, 6, 8, 0);
+    Personaje st11 = new Personaje("Tuvok", "11t", "/imgs/startreck/11t.jpg", 7, 8, 6, 0);
+    Personaje st12 = new Personaje("William Riker", "12t", "/imgs/startreck/12t.jpg", 8, 7, 6, 0);
+    Personaje st13 = new Personaje("Geordi La Forge", "13t", "/imgs/startreck/13t.jpg", 6, 8, 7, 0);
+    Personaje st14 = new Personaje("B'Elanna Torres", "14t", "/imgs/startreck/14t.jpg", 8, 6, 7, 0);
+    Personaje st15 = new Personaje("Jonathan Archer", "15t", "/imgs/startreck/15t.jpg", 6, 8, 7, 0);
+    Personaje st16 = new Personaje("Chakotay", "16t", "/imgs/startreck/16t.jpg", 7, 6, 8, 0);
+    Personaje st17 = new Personaje("Sarek", "17t", "/imgs/startreck/17t.jpg", 7, 8, 6, 0);
+    Personaje st18 = new Personaje("Gul Dukat", "18t", "/imgs/startreck/18t.jpg", 8, 7, 6, 0);
+    Personaje st19 = new Personaje("Montgomery Scott", "19t", "/imgs/startreck/19t.jpg", 6, 8, 7, 0);
+    Personaje st20 = new Personaje("T'Pol", "20t", "/imgs/startreck/20t.jpg", 7, 6, 8, 0);
 
 // Creación de personajes de Star Trek Nivel 3
-    Personaje st21 = new Personaje("Neelix", "21t", "", 5, 7, 6, 0);
-    Personaje st22 = new Personaje("Phlox", "22t", "", 6, 7, 5, 0);
-    Personaje st23 = new Personaje("Leonard McCoy", "23t", "", 7, 6, 5, 0);
-    Personaje st24 = new Personaje("Nyota Uhura", "24t", "", 5, 6, 7, 0);
-    Personaje st25 = new Personaje("Hikaru Sulu", "25t", "", 6, 7, 5, 0);
-    Personaje st26 = new Personaje("Pavel Chekov", "26t", "", 7, 5, 6, 0);
-    Personaje st27 = new Personaje("Tom Paris", "27t", "", 6, 5, 7, 0);
-    Personaje st28 = new Personaje("Deanna Troi", "28t", "", 5, 6, 7, 0);
-    Personaje st29 = new Personaje("Beverly Crusher", "29t", "", 7, 6, 5, 0);
-    Personaje st30 = new Personaje("Quark", "30t", "", 6, 5, 7, 0);
+    Personaje st21 = new Personaje("Neelix", "21t", "/imgs/startreck/21t.jpg", 5, 7, 6, 0);
+    Personaje st22 = new Personaje("Phlox", "22t", "/imgs/startreck/22t.jpg", 6, 7, 5, 0);
+    Personaje st23 = new Personaje("Leonard McCoy", "23t", "/imgs/startreck/23t.jpg", 7, 6, 5, 0);
+    Personaje st24 = new Personaje("Nyota Uhura", "24t", "/imgs/startreck/24t.jpg", 5, 6, 7, 0);
+    Personaje st25 = new Personaje("Hikaru Sulu", "25t", "/imgs/startreck/25t.jpg", 6, 7, 5, 0);
+    Personaje st26 = new Personaje("Pavel Chekov", "26t", "/imgs/startreck/26t.jpg", 7, 5, 6, 0);
+    Personaje st27 = new Personaje("Tom Paris", "27t", "/imgs/startreck/27t.jpg", 6, 5, 7, 0);
+    Personaje st28 = new Personaje("Deanna Troi", "28t", "/imgs/startreck/28t.jpg", 5, 6, 7, 0);
+    Personaje st29 = new Personaje("Beverly Crusher", "29t", "/imgs/startreck/29t.jpg", 7, 6, 5, 0);
+    Personaje st30 = new Personaje("Quark", "30t", "/imgs/startreck/30t.jpg", 6, 5, 7, 0);
 
     Administrador so = new Administrador(mutex, null, null, cola1St, cola2St, cola3St, colaRefuerzosSt, cola1Sw, cola2Sw, cola3Sw, colaRefuerzosSw, cola1RSw, cola2RSw, cola3RSw, cola1RSt, cola2RSt, cola3RSt);
     Procesador ia = new Procesador(mutex, so, duracion, colaGanadoresSt, cola1St, colaRefuerzosSt, colaGanadoresSw, cola1Sw, colaRefuerzosSw);
@@ -117,6 +118,7 @@ public class Pantalla extends javax.swing.JFrame {
         initSimulation();
         initComponents();
         iniciarRefrescoAutomatico();
+        
     }
 
     public void initSimulation() {
@@ -206,7 +208,15 @@ public class Pantalla extends javax.swing.JFrame {
             cola3RSt.enqueue(cola3St.dequeue());
         }
 
+        ia.setDuracion(duracion);
+        so.setDuracion(duracion);
+        
         so.start();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Pantalla.class.getName()).log(Level.SEVERE, null, ex);
+        }
         ia.start();
     }
 
@@ -259,6 +269,10 @@ public class Pantalla extends javax.swing.JFrame {
         GanadoresSt = new javax.swing.JTextArea();
         textGanador = new javax.swing.JTextField();
         rondas = new javax.swing.JTextField();
+        jSlider1 = new javax.swing.JSlider();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -302,42 +316,54 @@ public class Pantalla extends javax.swing.JFrame {
 
         jLabel1.setText("Estado IA");
 
+        jScrollPane2.setEnabled(false);
+
+        textCola3Sw.setEditable(false);
         textCola3Sw.setColumns(20);
         textCola3Sw.setRows(5);
         jScrollPane2.setViewportView(textCola3Sw);
 
+        textCola1Sw.setEditable(false);
         textCola1Sw.setColumns(20);
         textCola1Sw.setRows(5);
         jScrollPane3.setViewportView(textCola1Sw);
 
+        textCola2Sw.setEditable(false);
         textCola2Sw.setColumns(20);
         textCola2Sw.setRows(5);
         jScrollPane4.setViewportView(textCola2Sw);
 
+        textColaRSt.setEditable(false);
         textColaRSt.setColumns(20);
         textColaRSt.setRows(5);
         jScrollPane5.setViewportView(textColaRSt);
 
+        textCola1St.setEditable(false);
         textCola1St.setColumns(20);
         textCola1St.setRows(5);
         jScrollPane6.setViewportView(textCola1St);
 
+        textCola2St.setEditable(false);
         textCola2St.setColumns(20);
         textCola2St.setRows(5);
         jScrollPane7.setViewportView(textCola2St);
 
+        textCola3St.setEditable(false);
         textCola3St.setColumns(20);
         textCola3St.setRows(5);
         jScrollPane8.setViewportView(textCola3St);
 
+        textColaRSw.setEditable(false);
         textColaRSw.setColumns(20);
         textColaRSw.setRows(5);
         jScrollPane9.setViewportView(textColaRSw);
 
+        GanadoresSw.setEditable(false);
         GanadoresSw.setColumns(20);
         GanadoresSw.setRows(5);
         jScrollPane1.setViewportView(GanadoresSw);
 
+        GanadoresSt.setEditable(false);
         GanadoresSt.setColumns(20);
         GanadoresSt.setRows(5);
         jScrollPane10.setViewportView(GanadoresSt);
@@ -348,6 +374,21 @@ public class Pantalla extends javax.swing.JFrame {
         rondas.setEditable(false);
         rondas.setBorder(javax.swing.BorderFactory.createTitledBorder("Rondas"));
 
+        jSlider1.setMaximum(10);
+        jSlider1.setMinimum(1);
+        jSlider1.setValue(5);
+        jSlider1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSlider1StateChanged(evt);
+            }
+        });
+
+        jLabel2.setText("Tiempo de simulacion(S)");
+
+        jTextField1.setEditable(false);
+
+        jTextField2.setEditable(false);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -355,6 +396,9 @@ public class Pantalla extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(Cols1Label6, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -364,37 +408,42 @@ public class Pantalla extends javax.swing.JFrame {
                                 .addComponent(Cols1Label, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(Cols1Label1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(Cols1Label2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                                .addGap(62, 62, 62)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(PeleadorSwImg, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(NombreSw, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
-                                        .addComponent(HabilidadesSw)))
-                                .addGap(33, 33, 33)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(textGanador, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(105, 105, 105)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(NombreSt, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                                            .addComponent(HabilidadesSt)))
-                                    .addComponent(estadoIa, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(74, 74, 74)
-                                        .addComponent(PeleadorStImg, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(rondas, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(PeleadorSwImg, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(NombreSw, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                                                .addComponent(HabilidadesSw)))
+                                        .addGap(33, 33, 33)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(estadoIa, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(74, 74, 74)
+                                                .addComponent(PeleadorStImg, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(rondas, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(textGanador, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(105, 105, 105)
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(NombreSt, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                                                    .addComponent(HabilidadesSt))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(155, 155, 155))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(222, 222, 222)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(Cols1Label6, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -412,10 +461,16 @@ public class Pantalla extends javax.swing.JFrame {
                             .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)))))
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(404, 404, 404)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(68, 68, 68)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(84, 84, 84))
         );
         jPanel1Layout.setVerticalGroup(
@@ -426,12 +481,13 @@ public class Pantalla extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(14, 14, 14))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(rondas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel1))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Cols1Label3)
@@ -481,7 +537,9 @@ public class Pantalla extends javax.swing.JFrame {
                                 .addGap(8, 8, 8))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                         .addComponent(Cols1Label)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -493,8 +551,11 @@ public class Pantalla extends javax.swing.JFrame {
                         .addComponent(Cols1Label6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(24, 24, 24))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -505,14 +566,22 @@ public class Pantalla extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(69, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 50, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jSlider1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSlider1StateChanged
+
+        so.setDuracion(jSlider1.getValue() * 1000);
+        ia.setDuracion(jSlider1.getValue() * 1000);
+        System.out.println(so.getDuracion());
+        System.out.println(ia.getDuracion());
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jSlider1StateChanged
 
     /**
      * @param args the command line arguments
@@ -544,7 +613,7 @@ public class Pantalla extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-
+                
                 new Pantalla().setVisible(true);
             }
         });
@@ -582,11 +651,11 @@ public class Pantalla extends javax.swing.JFrame {
             if (so.getStProximo() != null && so.getSwProximo().getNombre() != null) {
                 this.NombreSt.setText(so.getStProximo().getNombre());
                 this.HabilidadesSt.setText("Ag:" + so.getStProximo().getAgilidad() + ",Fz:" + so.getStProximo().getFuerza() + ",In:" + so.getStProximo().getInteligencia());
-                iconSt = new ImageIcon(new ImageIcon(getClass().getResource("")).getImage().getScaledInstance(this.PeleadorStImg.getWidth(), this.PeleadorStImg.getHeight(), 0));
+                iconSt = new ImageIcon(new ImageIcon(getClass().getResource(so.getStProximo().getImagen())).getImage().getScaledInstance(this.PeleadorStImg.getWidth(), this.PeleadorStImg.getHeight(), 0));
                 this.PeleadorStImg.setIcon(iconSt);
                 this.NombreSw.setText(so.getSwProximo().getNombre());
                 this.HabilidadesSw.setText("Ag:" + so.getSwProximo().getAgilidad() + ",Fz:" + so.getSwProximo().getFuerza() + ",In:" + so.getSwProximo().getInteligencia());
-                iconSw = new ImageIcon(new ImageIcon(getClass().getResource("")).getImage().getScaledInstance(this.PeleadorSwImg.getWidth(), this.PeleadorSwImg.getHeight(), 0));
+                iconSw = new ImageIcon(new ImageIcon(getClass().getResource(so.getSwProximo().getImagen())).getImage().getScaledInstance(this.PeleadorSwImg.getWidth(), this.PeleadorSwImg.getHeight(), 0));
                 this.PeleadorSwImg.setIcon(iconSw);
             }
             this.rondas.setText(String.valueOf(so.getRondas()));
@@ -615,6 +684,7 @@ public class Pantalla extends javax.swing.JFrame {
     private javax.swing.JLabel PeleadorSwImg;
     private javax.swing.JTextField estadoIa;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -627,6 +697,9 @@ public class Pantalla extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JSlider jSlider1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField rondas;
     private javax.swing.JTextArea textCola1St;
     private javax.swing.JTextArea textCola1Sw;

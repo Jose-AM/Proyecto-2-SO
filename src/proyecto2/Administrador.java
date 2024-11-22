@@ -18,6 +18,7 @@ public class Administrador extends Thread {
     private Personaje swProximo;
     private Personaje stProximo;
     private int rondas;
+    private int duracion;
     private Cola<Personaje> colaNivel1St;
     private Cola<Personaje> colaNivel2St;
     private Cola<Personaje> colaNivel3St;
@@ -94,11 +95,12 @@ public class Administrador extends Thread {
                 if (swProximo != null && stProximo != null) {
                     this.actualizarCola();
                 }
+                
                 swProximo = colaNivel1Sw.dequeue();
                 stProximo = colaNivel1St.dequeue();
                 System.out.println(swProximo.getNombre() + " vs " + stProximo.getNombre());
                 this.mutex.release();
-                Thread.sleep(2500);
+                Thread.sleep(duracion/2);
             } catch (InterruptedException ex) {
                 Logger.getLogger(Procesador.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -285,6 +287,15 @@ public class Administrador extends Thread {
     public void setContador(int contador) {
         this.contador = contador;
     }
+
+    public int getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
+    }
+    
     
     
     

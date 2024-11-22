@@ -34,7 +34,7 @@ public class Cola<T> {
 
     // Método para retirar el primer elemento de la cola
     public T dequeue() {
-        if (isEmpty()) {
+        if (isEmpty() || front == null) {
             System.err.println("La cola esta vacia");
             //throw new IllegalStateException("Queue is empty!");
         }

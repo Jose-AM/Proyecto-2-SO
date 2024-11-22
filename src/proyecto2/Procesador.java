@@ -44,7 +44,7 @@ public class Procesador extends Thread {
             try {
 
                 this.mutex.acquire();
-                System.out.println("Ejecutando ia");
+//                System.out.println("Ejecutando ia");
 
                 this.estado = "Decidiendo";
                 Thread.sleep(duracion / 2);
