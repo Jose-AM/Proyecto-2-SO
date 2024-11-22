@@ -75,10 +75,10 @@ public class Administrador extends Thread {
                 this.mutex.acquire();
 
                 contador++;
-                
-                if (contador == 4) {
-                    contador = 0;
 
+                if (contador == 2) {
+                    contador = 0;
+                    agregarPersonajes();
                 }
 
 //                System.out.println("Ejecutando so");
@@ -91,16 +91,15 @@ public class Administrador extends Thread {
 //                colaNivel2St.printQueueName("---------Cola St2---------", true);
 //                colaNivel3St.printQueueName("---------Cola St3---------", true);
 //                colaRefuerzosSt.printQueueName("---------Cola StR---------", true);
-
                 if (swProximo != null && stProximo != null) {
                     this.actualizarCola();
                 }
-                
+
                 swProximo = colaNivel1Sw.dequeue();
                 stProximo = colaNivel1St.dequeue();
                 System.out.println(swProximo.getNombre() + " vs " + stProximo.getNombre());
                 this.mutex.release();
-                Thread.sleep(duracion/2);
+                Thread.sleep(duracion / 2);
             } catch (InterruptedException ex) {
                 Logger.getLogger(Procesador.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -295,8 +294,5 @@ public class Administrador extends Thread {
     public void setDuracion(int duracion) {
         this.duracion = duracion;
     }
-    
-    
-    
-    
+
 }
